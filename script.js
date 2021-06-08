@@ -1,9 +1,9 @@
 function showDropdown(){
     $("#dropdown").removeClass("hide").addClass("show");
-    $("#login i ").removeClass("fas fa-door-open").addClass("fas fa-times");
+    $("#ddlogin").attr("src", "icon/cancel.png");
 }
 
 function hideDropdown(){
     $("#dropdown").removeClass("show").addClass("hide");
-    $("#login i ").removeClass("fas fa-times").addClass("fas fa-door-open"); 
+    $("#ddlogin").attr("src", "icon/login.png");
 }

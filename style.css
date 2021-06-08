@@ -1,6 +1,14 @@
+/* login */
+#ddlogin
+{
+    height: 2em;
+    width: 2em;
+}
+
 #login
 {
     position: relative;
+    display: inline-block;
     float: right;
 }
 
@@ -20,10 +28,20 @@
   z-index: 1;
 }
 
+#login:hover #dropdown {
+  display: block;
+}
+
 .show {
     display: block;
 }
 
 .hide {
     display: none;
+}
+
+
+/* header */
+header img{
+    max-width: 100%;
 }
