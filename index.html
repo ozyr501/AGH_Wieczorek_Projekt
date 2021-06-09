@@ -18,150 +18,61 @@
     <header>
         <img src="logo.gif" alt="Logo">
     </header>
-    <nav id="login">
-        <img src="icon/login.png" alt="Zaloguj się" id="ddlogin">
-        <div id="dropdown" class="hide">
-            <form action="login.php" method="POST">
-                <label for="login">Login:</label><br />
-                <input type="text" id="login" name="login"><br/>
-                <label for="pass">Hasło:</label><br/>
-                <input type="password" id="pass" name="pass"><br/>
-                <input type="submit" value="zaloguj" name="log"><br/>
-            </form>
-            <a href="register.php">Nie masz konta? Zarejstruj się!</a>
+    <nav class="menu-bar">
+        <div>
+            Strona główna
+        </div>
+        <div>
+            Repertuar
+        </div>
+        <div>
+            Walidacja biletu
+        </div>
+        <div>
+            Kontakt
+        </div>
+        <div id="loginmenu">
+            <div id="ddlogin">zaloguj</div>
+            <div id="dropdown" class="hide">
+                <form action="login.php" method="POST">
+                    <label for="login">Login:</label><br />
+                    <input type="text" id="login" name="login"><br />
+                    <label for="pass">Hasło:</label><br />
+                    <input type="password" id="pass" name="pass"><br />
+                    <input type="submit" value="zaloguj" name="log"><br />
+                </form>
+                <a href="register.php">Nie masz konta? Zarejstruj się!</a>
+            </div>
         </div>
     </nav>
-    <div id="movies">
-        Filmy które obecnie  emitujemy:
-        <div id="list">
-            <ul class="flex-container">
-                <?php
-
-                ?>
-            </ul>
-        </div>
-    </div>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sapien leo, aliquam ut bibendum ut, malesuada id purus.
-Mauris maximus hendrerit nisl, vel tristique turpis convallis quis. Interdum et malesuada fames ac ante ipsum primis in
-faucibus. Vivamus vitae sapien tristique, tempor felis at, ornare nunc. Maecenas hendrerit quam eget mauris blandit, sit
-amet congue felis rhoncus. Maecenas congue congue accumsan. Phasellus at est id odio tempus vestibulum. Nunc tristique
-libero diam. Pellentesque ut iaculis elit. Fusce euismod bibendum mi, at ultrices neque varius eget. Proin laoreet a ex
-sit amet vulputate. Proin vel blandit arcu. Pellentesque cursus consectetur nisi, nec mollis dui finibus consectetur.
-<br />
-In suscipit consequat est vel feugiat. Cras aliquam a quam quis aliquet. Aliquam vel nisl eget orci molestie tempus.
-Duis in est placerat, ultricies velit in, pretium tellus. Duis feugiat tincidunt imperdiet. Nam tincidunt nibh mattis
-tortor lacinia posuere. Cras sed mauris sit amet ligula interdum molestie a vitae erat. Aenean nisi nibh, sagittis eu
-gravida congue, aliquam eget enim. Fusce at sem quam. Praesent lobortis porttitor aliquam. Quisque ipsum urna, egestas
-quis elit et, tincidunt gravida magna. Etiam pretium felis tortor. Praesent placerat quam leo, vel viverra dolor sodales
-in.
-<br />
-Vivamus a auctor augue, facilisis egestas velit. Morbi nec ipsum sed augue ornare cursus. Etiam diam orci, euismod eu
-laoreet at, lobortis id elit. Cras feugiat tortor leo, consequat laoreet arcu interdum et. Ut lacinia augue et erat
-tempor aliquam. Aenean a ullamcorper eros. Nulla posuere, leo sit amet eleifend tristique, massa dolor aliquet lectus,
-vitae facilisis lorem lacus vel arcu.
-<br />
-Sed ac purus ut augue placerat ultricies. Donec sit amet sapien augue. Aliquam neque felis, ornare vitae magna eget,
-convallis ultricies mauris. Fusce lacus ligula, accumsan ac elit ut, pretium efficitur lacus. Mauris eget tellus vel sem
-ultrices laoreet. Sed egestas erat at mi placerat, sed mollis nunc aliquet. Duis ultricies justo ac lectus sodales
-bibendum.
-<br />
-Quisque pulvinar sed eros quis sodales. Ut bibendum tristique tellus, in finibus est imperdiet nec. Proin vitae
-ullamcorper leo. Fusce consectetur felis nibh. Etiam mattis risus eu tristique vehicula. Ut finibus magna sed aliquet
-vehicula. Nunc quis risus non nisl suscipit porta. Cras ut orci sed nulla auctor mattis. Aenean ac malesuada lacus. Nam
-vel pretium tellus, nec dapibus tellus.
-<br />
-Sed magna sapien, tristique quis nisl et, viverra vulputate velit. In bibendum in turpis a aliquam. Class aptent taciti
-sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras sed placerat eros, lacinia placerat elit.
-Nam at neque non nulla blandit sodales. Mauris tincidunt vulputate nisl ut porta. Curabitur aliquet lacus sit amet dui
-maximus, aliquam iaculis leo luctus. Praesent id urna odio. Praesent sed felis et odio rutrum laoreet molestie nec mi.
-Vivamus placerat at erat ac porttitor.
-<br />
-Praesent iaculis, quam vel aliquam faucibus, mauris nisi eleifend enim, eget elementum ligula lorem sed sem. Fusce
-auctor a odio et tincidunt. Phasellus elementum, est quis fringilla porta, sapien lorem iaculis libero, vel consectetur
-felis erat porttitor dolor. Ut at turpis eget odio porttitor maximus ut non neque. Proin enim nulla, feugiat a tellus
-eu, lobortis dignissim mauris. Donec in quam a eros interdum pulvinar. Maecenas eu mi sed turpis pellentesque semper
-pulvinar eu dui. Sed a libero mauris. Proin et rutrum justo. Vestibulum sodales sem magna. Fusce at porttitor odio.
-Phasellus non fringilla augue, facilisis fermentum elit. Integer id nisi finibus justo pellentesque dignissim.
-<br />
-Curabitur sed erat eu dui interdum laoreet. Morbi eu gravida nulla. Duis tincidunt dictum bibendum. Fusce justo dui,
-maximus quis cursus nec, iaculis nec lorem. Morbi ac velit semper, sagittis ligula ut, sagittis nulla. Vestibulum quis
-convallis sem. Proin ut nisi ornare leo gravida suscipit.
-<br />
-Vivamus quis tempus diam. Vivamus vitae odio quis sapien auctor porttitor. Aenean blandit ipsum eros, sed tincidunt
-ipsum laoreet ac. In auctor urna euismod, volutpat ligula in, molestie mauris. Curabitur ut diam mi. Donec dignissim
-fringilla commodo. Pellentesque est ante, vestibulum a purus nec, consectetur blandit justo.
-<br />
-Donec vestibulum placerat congue. Curabitur dolor mauris, auctor ac neque at, cursus feugiat tortor. Aliquam sed
-pulvinar nulla, ut pellentesque diam. Etiam ac sapien dui. Aliquam non mattis eros, ac tempus lorem. Fusce sed bibendum
-neque, vitae sollicitudin tortor. Vivamus sem arcu, laoreet vitae rhoncus vitae, ornare nec ex. Sed in pretium elit. Nam
-scelerisque nisl in sapien mattis, efficitur porttitor tortor cursus. Pellentesque nec sapien metus.
-<br />
-Etiam sed tempor nisi. Nulla erat mauris, malesuada eu orci non, egestas finibus massa. Ut lacinia enim ut turpis
-interdum consequat. Proin mattis congue elit. Morbi pharetra tincidunt auctor. Pellentesque habitant morbi tristique
-senectus et netus et malesuada fames ac turpis egestas. Etiam vitae magna non odio tempus eleifend. Donec sed sem odio.
-Pellentesque aliquet, mi id bibendum pulvinar, quam sapien luctus turpis, sed finibus nisl sapien non augue. Morbi
-interdum diam id quam pharetra, a aliquam erat molestie. Morbi quis iaculis mi. Morbi interdum dui a interdum venenatis.
-Praesent eu libero tortor. Donec ac auctor risus. Vestibulum congue tortor felis, vel iaculis elit dapibus nec.
-<br />
-Vestibulum accumsan elementum tortor a placerat. Sed fringilla maximus libero ut vulputate. Vestibulum pretium erat
-tellus, ac pulvinar erat ultricies quis. Aliquam non vulputate quam, et pellentesque metus. Donec quis bibendum nibh, ac
-aliquet nibh. Integer viverra risus a posuere tincidunt. Vestibulum sit amet lacinia diam, quis sodales arcu. Quisque in
-turpis tempor metus dapibus consequat.
-<br />
-In at elementum odio. Suspendisse potenti. Donec nec nisl porta, accumsan metus vitae, hendrerit purus. In hac habitasse
-platea dictumst. Nunc a efficitur ligula. Fusce aliquet nisi dui, sit amet condimentum purus fringilla id. Etiam
-fringilla enim augue, vel ultrices magna fermentum quis. Proin sit amet eros leo. Phasellus scelerisque enim nulla, ac
-eleifend justo vulputate id. Vestibulum et sodales augue. Maecenas et justo turpis. Nullam accumsan ex purus, non varius
-elit vulputate vel. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque
-consequat ipsum a ex pretium suscipit. Donec gravida erat sit amet felis sodales, at gravida felis molestie. Aliquam
-massa nunc, mattis a euismod at, interdum non dolor.
-<br />
-Nam rutrum aliquam tortor at posuere. Vivamus nec sapien volutpat, tristique nisi vel, consectetur nunc. Sed interdum
-tristique nisl at viverra. Fusce vitae felis sed libero bibendum interdum quis vel nisi. Sed at nisl at augue viverra
-vehicula vitae at lectus. Nunc sit amet egestas metus. Donec tempus turpis orci, eget placerat quam rutrum vitae.
-<br />
-Quisque nec lacus ac tortor semper molestie eget eget tortor. Sed pharetra volutpat porttitor. Suspendisse pharetra,
-turpis sit amet tincidunt laoreet, mi dui tincidunt ipsum, ac mollis nisl urna eu eros. Maecenas vitae semper nunc.
-Praesent sit amet libero quis diam vestibulum vulputate ac in nulla. Lorem ipsum dolor sit amet, consectetur adipiscing
-elit. Suspendisse potenti. Phasellus finibus mauris et enim efficitur mattis. Vivamus eleifend consectetur mauris et
-porttitor. Vivamus id lobortis turpis, et luctus leo. In hac habitasse platea dictumst. Suspendisse est quam, mattis in
-vehicula nec, semper at mi. Nullam id magna nec mi tincidunt tincidunt. Etiam ac finibus tortor. Etiam mollis suscipit
-aliquam. Pellentesque bibendum, nibh sed dictum sollicitudin, turpis ante aliquet nibh, luctus suscipit purus dui in
-mauris.
-<br />
-Curabitur at suscipit diam. Integer euismod varius libero, nec dapibus nulla cursus a. Quisque vel vehicula risus.
-Aenean at eleifend ipsum. In molestie, tellus ut efficitur sodales, diam nisl tincidunt quam, a cursus neque ligula ut
-massa. Donec ac sagittis enim. Mauris placerat felis quis enim imperdiet efficitur. Etiam bibendum auctor magna. Orci
-varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-<br />
-Mauris in mauris nisl. Praesent rhoncus est ipsum, ut feugiat lectus condimentum et. Donec cursus convallis neque quis
-tincidunt. Nunc feugiat ultrices iaculis. Ut non nulla nulla. Quisque et metus congue, auctor tortor eget, posuere
-libero. Vivamus consectetur maximus purus at pharetra. In imperdiet enim ac lectus viverra, quis rhoncus dui blandit.
-<br />
-Donec ornare fringilla leo at rutrum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras in orci ac elit
-cursus tempus malesuada eget augue. Suspendisse mauris sapien, sollicitudin ut mauris ut, blandit fringilla libero.
-Vivamus lectus lectus, hendrerit sit amet faucibus quis, rhoncus nec ante. Duis erat mauris, placerat vitae felis eu,
-luctus convallis quam. In ornare congue tellus vel mollis. Duis lobortis a elit sit amet pharetra. Nunc sollicitudin
-vehicula elit eget tristique. Etiam porttitor risus sodales rhoncus luctus. Sed risus odio, molestie nec pellentesque
-vel, interdum eget ante. Duis porta enim aliquam bibendum luctus. Phasellus ut tortor fermentum, blandit neque vel,
-porta nisi.
-<br/>
-Aliquam facilisis tortor suscipit urna viverra, vitae sodales neque condimentum. Praesent placerat cursus lectus, in
-efficitur augue accumsan vitae. Vivamus laoreet metus ut tortor faucibus imperdiet. Ut molestie tincidunt dui, non
-laoreet urna eleifend sit amet. Maecenas fringilla ipsum a tortor mollis, ac scelerisque justo egestas. Ut tellus leo,
-cursus id enim eu, accumsan volutpat dolor. Sed scelerisque lorem nec vehicula iaculis.
-<br />
-Morbi finibus dapibus lobortis. Integer non orci tellus. Pellentesque eu velit eget mi fringilla tempor at eget purus.
-Proin sodales congue semper. Integer tristique justo eget eros vulputate tincidunt. Curabitur vel dolor posuere,
-placerat augue sed, venenatis augue. Phasellus tincidunt nibh quis dolor pulvinar, sit amet consectetur mi tincidunt.
-Nulla scelerisque ex in velit euismod venenatis.
-
-
+    <main>
+        <section>
+            <h1>Trochę o nas</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sapien leo, aliquam ut bibendum ut, malesuada id purus.
+                Mauris maximus hendrerit nisl, vel tristique turpis convallis quis. Interdum et malesuada fames ac ante ipsum primis in
+                faucibus. Vivamus vitae sapien tristique, tempor felis at, ornare nunc. Maecenas hendrerit quam eget mauris blandit, sit
+                amet congue felis rhoncus. Maecenas congue congue accumsan. Phasellus at est id odio tempus vestibulum. Nunc tristique
+                libero diam. Pellentesque ut iaculis elit. Fusce euismod bibendum mi, at ultrices neque varius eget. Proin laoreet a ex
+                sit amet vulputate. Proin vel blandit arcu. Pellentesque cursus consectetur nisi, nec mollis dui finibus consectetur.
+                <br />
+            </p>
+        </section>
+        <article id="movies">
+            <h3>Polecane filmy:</h3>
+            <div id="list">
+                <ul class="flex-container">
+                    <?php
+                        Tu będzie top 5 filmów w kinie na podstawie oceny
+                    ?>
+                </ul>
+            </div>
+        </article>
+    </main>
 
 <script>
     $('body').click(function (e) {
-            if (e.target.id == "login")
+            if (e.target.id == "loginmenu")
             {
                 showDropdown();
                 return;
@@ -171,7 +82,7 @@ Nulla scelerisque ex in velit euismod venenatis.
                 hideDropdown();
                 return;
             }
-            if ($(e.target).closest('#login').length > 0)
+            if ($(e.target).closest('#loginmenu').length > 0)
             {
                 showDropdown();
                 return;

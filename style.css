@@ -1,35 +1,71 @@
-/* login */
-#ddlogin
+body
 {
-    height: 2em;
-    width: 2em;
+    padding: 0;
+    margin: 0;
 }
 
-#login
+/* header */
+header img{
+    width: 100%;
+}
+
+/* Menu */
+/* minimalna szerokość 700 px */
+.menu-bar
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+    box-sizing: border-box;
+    padding: 0;
+    border-top: 1px solid black;
+    border-bottom:  1px solid black;
+}
+
+.menu-bar > div
+{
+    border: 1px solid gray;
+    border-top: 0px;
+    border-bottom: 0px;
+    text-align: center;
+    padding: 0.5em;
+    width: 20%;
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* login */
+#loginmenu
 {
     position: relative;
     display: inline-block;
-    float: right;
 }
 
-#login i
+#loginmenu div
 {
-    font-size: 200%;
+    width: 100%;
 }
 
 #dropdown {
-  position: absolute;
-  right: 0;
-  float: right;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
+    text-align: initial;
+    min-width: 200px;
+    position: absolute;
+    right: 1px;
+    margin-top: 1px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
 }
 
-#login:hover #dropdown {
-  display: block;
+#dropdown input{
+    margin-bottom: 5px;
+}
+
+#loginmenu:hover #dropdown {
+    display: block;
 }
 
 .show {
@@ -40,8 +76,3 @@
     display: none;
 }
 
-
-/* header */
-header img{
-    max-width: 100%;
-}
