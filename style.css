@@ -4,75 +4,173 @@ body
     margin: 0;
 }
 
-/* header */
-header img{
-    width: 100%;
-}
-
 /* Menu */
-/* minimalna szerokość 700 px */
-.menu-bar
-{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    height: auto;
-    box-sizing: border-box;
-    padding: 0;
-    border-top: 1px solid black;
-    border-bottom:  1px solid black;
+@media all and (min-width:700px)
+{ 
+    header img{
+        width: 100%;
+    }
+    #menubutton{
+        display: none;
+    }
+    #menu-bar
+    {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        height: auto;
+        box-sizing: border-box;
+        padding: 0;
+        border-top: 1px solid black;
+        border-bottom:  1px solid black;
+    }
+
+    #menu-bar > div
+    {
+        border: 1px solid gray;
+        border-top: 0px;
+        border-bottom: 0px;
+        text-align: center;
+        padding: 0;
+        width: 20%;
+        height: 100%;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    /* login */
+    #loginmenu
+    {
+        position: relative;
+        display: inline-block;
+    }
+
+    #loginmenu div
+    {
+        width: 100%;
+    }
+
+    #dropdown {
+        text-align: initial;
+        box-sizing: border-box;
+        position: absolute;
+        /*margin-top: 1px;*/
+        background-color: white;
+        /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+        border: solid 1px black;
+        border-top: 0px;
+        padding: 12px 16px;
+        z-index: 1;
+    }
+
+    #dropdown input{
+        margin-bottom: 5px;
+    }
+
+    #loginmenu:hover #dropdown {
+        display: block;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    #login_redirect{
+        display: none;
+    }
+
+    #ddlogin{
+        padding: 0.5em;
+    }
 }
 
-.menu-bar > div
+@media all and (max-width:699px)
 {
-    border: 1px solid gray;
-    border-top: 0px;
-    border-bottom: 0px;
-    text-align: center;
+    nav{
+        display: none;
+    }
+    header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #titlepic{
+        width: 70%;
+        padding: 0px 15px;
+        box-sizing: border-box;
+    }
+
+    header img{
+        width: 100%;
+    }
+
+    #menubutton{
+        box-sizing: border-box;
+        padding:7%;
+        width: 30%;
+        height: 100%;
+    }
+
+    #menu-bar
+    {
+        width: 100%;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        height: auto;
+        box-sizing: border-box;
+        padding: 0;
+        border-top: 1px solid black;
+        border-bottom:  1px solid black;
+    }
+
+    #menu-bar > div
+    {
+        border: 1px solid gray;
+        border-left: 0px;
+        border-right: 0px;
+        text-align: center;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .show {
+        display: none;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .MenuShow {
+        display: flex;
+    }
+
+    .MenuHide {
+        display: none;
+    }
+
+    #ddlogin{
+        display: none;
+    }
+
+    #logn_redirect{
+        display: block;
+    }
+}
+
+.MenuButton{
+    display: block;
     padding: 0.5em;
-    width: 20%;
-    height: 100%;
-    margin: 0;
-    box-sizing: border-box;
 }
 
-/* login */
-#loginmenu
-{
-    position: relative;
-    display: inline-block;
-}
 
-#loginmenu div
-{
-    width: 100%;
+main{
+    margin: 10px;
 }
-
-#dropdown {
-    text-align: initial;
-    min-width: 200px;
-    position: absolute;
-    right: 1px;
-    margin-top: 1px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
-}
-
-#dropdown input{
-    margin-bottom: 5px;
-}
-
-#loginmenu:hover #dropdown {
-    display: block;
-}
-
-.show {
-    display: block;
-}
-
-.hide {
-    display: none;
-}
-

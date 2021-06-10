@@ -10,28 +10,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <link href="/fontawesome/css/all.css" rel="stylesheet">
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.3.min.js"></script>
 </head>
 
 <body>
     <header>
-        <img src="logo.gif" alt="Logo">
+        <div id="titlepic">
+            <picture>
+                <source srcset="logo.gif" alt="Logo" media="(min-width: 700px)">
+                <img src="logosmall.gif" alt="Logo">
+            </picture>
+        </div>
+        <div id="menubutton">
+            <img src="icon/Hamburger.png" alt="Menu">
+        </div>
     </header>
-    <nav class="menu-bar">
+    <nav id="menu-bar" class="MenuHide" >
         <div>
-            Strona główna
+            <a href="index.php" class="MenuButton">Strona główna</a>
         </div>
         <div>
-            Repertuar
+            <a href="repertura.php" class="MenuButton">Repertuar</a>
         </div>
         <div>
-            Walidacja biletu
+            <a href="ticket.php" class="MenuButton">Walidacja biletu</a>
         </div>
         <div>
-            Kontakt
+            <a href="address.php" class="MenuButton">Kontakt</a>
         </div>
         <div id="loginmenu">
+            <a href="loginpage.php" id="login_redirect" class="MenuButton">zaloguj</a>
             <div id="ddlogin">zaloguj</div>
             <div id="dropdown" class="hide">
                 <form action="login.php" method="POST">
@@ -72,7 +80,9 @@
 
 <script>
     $('body').click(function (e) {
-            if (e.target.id == "loginmenu")
+        if($(window).width() >= 700)
+        {
+            if (e.target.id == "loginmenu" || $(e.target).closest('#loginmenu').length > 0)
             {
                 showDropdown();
                 return;
@@ -82,18 +92,27 @@
                 hideDropdown();
                 return;
             }
-            if ($(e.target).closest('#loginmenu').length > 0)
-            {
-                showDropdown();
-                return;
-            }
             if ($("#dropdown").hasClass("show"))
             {
                 hideDropdown();
-                
+                return;
+            }     
+        }
+        else
+        {
+            if (e.target.id == "menubutton" || $(e.target).closest('#menubutton').length > 0)
+            {
+                if($("#menu-bar").hasClass("MenuHide"))
+                {
+                    showMenu();
+                }
+                else
+                {
+                    hideMenu();
+                }
             }
-                             
-        });
+        }      
+    });
 </script>
 </body>
 </html>
