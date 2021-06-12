@@ -57,8 +57,21 @@
     <main>
         Wybierz film, który cię interesuje:
         <?php
-
+            $link = mysqli_connect("localhost", "FilmViewer", "", "kino");
+            if (!$link) {
+                echo ("Błąd bazy danych. Bardzo przepraszamy");
+                exit();
+            }
+            $que = "SELECT NAZWA, OCENA FROM filmy ORDER BY OCENA DESC";
+            $result = $link->query($que);
         ?>
+        <ul class="flex-films">
+            <?php foreach ($result as $film) : ?>
+                <li class='flex-film'>
+                    <?php echo ($film["NAZWA"]) ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
     </main>
 
     <script>
