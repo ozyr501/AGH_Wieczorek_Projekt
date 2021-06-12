@@ -1,0 +1,21 @@
+@media all and (min-width:700px)
+{ 
+
+}
+
+@media all and (max-width:699px)
+{
+    main{
+        border: 0px;
+        margin: 0px;
+        padding: 5%;
+        font-size: 150%;
+    }
+
+    main form input
+    {
+        margin-bottom: 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }    
+}
