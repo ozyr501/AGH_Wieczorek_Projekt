@@ -40,18 +40,26 @@
             <a href="address.php" class="MenuButton">Kontakt</a>
         </div>
         <div id="loginmenu">
-            <a href="loginpage.php" id="login_redirect" class="MenuButton">zaloguj</a>
-            <div id="ddlogin">zaloguj</div>
-            <div id="dropdown" class="hide">
-                <form action="login.php" method="POST">
-                    <label for="login">Login:</label><br />
-                    <input type="text" id="login" name="login"><br />
-                    <label for="pass">Hasło:</label><br />
-                    <input type="password" id="pass" name="pass"><br />
-                    <input type="submit" value="zaloguj" name="log"><br />
-                </form>
-                <a href="registerpage.php">Nie masz konta? Zarejstruj się!</a>
-            </div>
+            <?php if (isset($_SESSION['logged']) && $_SESSION['logged']) : ?>
+                <a href="profile.php" class="MenuButton">Profil2</a>
+                <div id="dropdown" class="hide">
+                    <a href="logout.php">Wyloguj</a>
+                </div>
+                <a href="logout.php" id="logout" class="MenuButton">Wyloguj</a>
+            <?php else : ?>
+                <a href="loginpage.php" id="login_redirect" class="MenuButton">zaloguj</a>
+                <div id="ddlogin">zaloguj</div>
+                <div id="dropdown" class="hide">
+                    <form action="login.php" method="POST">
+                        <label for="login">Login:</label><br />
+                        <input type="text" id="login" name="login"><br />
+                        <label for="pass">Hasło:</label><br />
+                        <input type="password" id="pass" name="pass"><br />
+                        <input type="submit" value="zaloguj" name="log"><br />
+                    </form>
+                    <a href="registerpage.php">Nie masz konta? Zarejstruj się!</a>
+                </div>
+            <?php endif; ?>
         </div>
     </nav>
     <main>
