@@ -10,6 +10,7 @@
     <meta name="author" content="Krzysztof Wieczorek">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleindex.css">
     <script src="script.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.3.min.js"></script>
 </head>
@@ -58,6 +59,7 @@
         <section>
             <h1>Trochę o nas</h1>
             <p>
+                <B>ZMIEŃ UŻYTKOWNIKA NA TAKIEGO ZBEZ UPRAWNIEŃ!!!</B><br />
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sapien leo, aliquam ut bibendum ut, malesuada id purus.
                 Mauris maximus hendrerit nisl, vel tristique turpis convallis quis. Interdum et malesuada fames ac ante ipsum primis in
                 faucibus. Vivamus vitae sapien tristique, tempor felis at, ornare nunc. Maecenas hendrerit quam eget mauris blandit, sit
@@ -70,15 +72,25 @@
         <article id="movies">
             <h3>Polecane filmy:</h3>
             <div id="list">
-                <ul class="flex-container">
-                    <?php
-                    //Tu będzie top 5 filmów w kinie na podstawie oceny
-                    ?>
+                <?php
+                $link = mysqli_connect("localhost", "UserAdmin", "SilneHaslo123", "kino");
+                if (!$link) {
+                    echo ("Błąd bazy danych. Bardzo przepraszamy");
+                    exit();
+                }
+                $que = "SELECT NAZWA, OCENA FROM filmy ORDER BY OCENA DESC LIMIT 6";
+                $result = $link->query($que);
+                ?>
+                <ul class="flex-films">
+                    <?php foreach ($result as $film) : ?>
+                        <li class='flex-film'>
+                            <?php echo ($film["NAZWA"]) ?>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </article>
     </main>
-    kmgfsmkgnerktjgnertlkgnkels
     <script>
         $('body').click(function(e) {
             if ($(window).width() >= 700) {

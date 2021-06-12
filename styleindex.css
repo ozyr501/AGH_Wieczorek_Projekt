@@ -1,0 +1,14 @@
+.flex-films{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 0px;
+}
+
+.flex-film{
+    display: block;
+    min-width: 300px;
+    border: solid black 1px;
+    margin: 20px;
+}
