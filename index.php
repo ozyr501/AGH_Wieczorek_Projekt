@@ -59,7 +59,6 @@
         <section>
             <h1>Trochę o nas</h1>
             <p>
-                <B>ZMIEŃ UŻYTKOWNIKA NA TAKIEGO ZBEZ UPRAWNIEŃ!!!</B><br />
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sapien leo, aliquam ut bibendum ut, malesuada id purus.
                 Mauris maximus hendrerit nisl, vel tristique turpis convallis quis. Interdum et malesuada fames ac ante ipsum primis in
                 faucibus. Vivamus vitae sapien tristique, tempor felis at, ornare nunc. Maecenas hendrerit quam eget mauris blandit, sit
@@ -73,7 +72,7 @@
             <h3>Polecane filmy:</h3>
             <div id="list">
                 <?php
-                $link = mysqli_connect("localhost", "UserAdmin", "SilneHaslo123", "kino");
+                $link = mysqli_connect("localhost", "FilmViewer", "", "kino");
                 if (!$link) {
                     echo ("Błąd bazy danych. Bardzo przepraszamy");
                     exit();

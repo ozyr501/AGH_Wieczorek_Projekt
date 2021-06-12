@@ -1,6 +1,7 @@
 .flex-films{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    align-items: stretch;
     flex-wrap: wrap;
     box-sizing: border-box;
     padding: 0px;
@@ -8,7 +9,9 @@
 
 .flex-film{
     display: block;
-    min-width: 300px;
+    width: 300px;
+    height: 400px;
+    flex-shrink: 2;
     border: solid black 1px;
-    margin: 20px;
+    margin: 10px 20px;
 }
