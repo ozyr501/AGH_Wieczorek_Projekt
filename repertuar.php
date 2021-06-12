@@ -57,20 +57,19 @@
     <main>
         Wybierz film, który cię interesuje:
         <?php
-            $link = mysqli_connect("localhost", "FilmViewer", "", "kino");
-            if (!$link) {
-                echo ("Błąd bazy danych. Bardzo przepraszamy");
-                exit();
-            }
-            $que = "SELECT NAZWA, OCENA FROM filmy ORDER BY OCENA DESC";
-            $result = $link->query($que);
+        $link = mysqli_connect("localhost", "FilmViewer", "", "kino");
+        if (!$link) {
+            echo ("Błąd bazy danych. Bardzo przepraszamy");
+            exit();
+        }
+        $que = "SELECT NAZWA, OCENA FROM filmy ORDER BY OCENA DESC";
+        $result = $link->query($que);
         ?>
         <ul class="flex-films">
-            <?php foreach ($result as $film) : ?>
-                <li class='flex-film'>
-                    <?php echo ($film["NAZWA"]) ?>
-                </li>
-            <?php endforeach; ?>
+            <?php foreach ($result as $film) {
+                echo ("<li class='flex-film' id=" . $film["NAZWA"] . ">" . $film["NAZWA"] . "</li>");
+            }
+            ?>
         </ul>
     </main>
 
@@ -99,6 +98,11 @@
                 }
             }
         });
+
+        $('.flex-films').click(function(e) {
+            $("#movie_name").val(e.target.id);
+            $("#hidden_form").submit();
+        })
     </script>
 </body>
 

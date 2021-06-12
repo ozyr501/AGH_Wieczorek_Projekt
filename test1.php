@@ -56,42 +56,10 @@
         </div>
     </nav>
     <main>
-        <section>
-            <h1>Trochę o nas</h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sapien leo, aliquam ut bibendum ut, malesuada id purus.
-                Mauris maximus hendrerit nisl, vel tristique turpis convallis quis. Interdum et malesuada fames ac ante ipsum primis in
-                faucibus. Vivamus vitae sapien tristique, tempor felis at, ornare nunc. Maecenas hendrerit quam eget mauris blandit, sit
-                amet congue felis rhoncus. Maecenas congue congue accumsan. Phasellus at est id odio tempus vestibulum. Nunc tristique
-                libero diam. Pellentesque ut iaculis elit. Fusce euismod bibendum mi, at ultrices neque varius eget. Proin laoreet a ex
-                sit amet vulputate. Proin vel blandit arcu. Pellentesque cursus consectetur nisi, nec mollis dui finibus consectetur.
-                <br />
-            </p>
-        </section>
-        <article id="movies">
-            <h3>Polecane filmy:</h3>
-            <div id="list">
-                <?php
-                $link = mysqli_connect("localhost", "FilmViewer", "", "kino");
-                if (!$link) {
-                    echo ("Błąd bazy danych. Bardzo przepraszamy");
-                    exit();
-                }
-                $que = "SELECT NAZWA, OCENA FROM filmy ORDER BY OCENA DESC LIMIT 6";
-                $result = $link->query($que);
-                ?>
-                <ul class="flex-films">
-                    <?php foreach ($result as $film) {
-                        echo ("<li class='flex-film' id=" . $film["NAZWA"] . ">" . $film["NAZWA"] . "</li>");
-                    }
-                    ?>
-                </ul>
-            </div>
-        </article>
-        <form action="filmcheck.php" method="POST" id="hidden_form">
-            <input type="hidden" name="movie_name" value="test" id="movie_name">
-            <input type="submit">
-        </form>
+        <div id="film">
+            Test XD
+        </div>
+
     </main>
     <script>
         $('body').click(function(e) {
@@ -119,8 +87,8 @@
             }
         });
 
-        $('.flex-films').click(function(e) {
-            $("#movie_name").val(e.target.id);
+        $('#film').click(function(e) {
+            $("#movie_name").val("Krzyś");
             $("#hidden_form").submit();
         })
     </script>
