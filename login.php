@@ -1,10 +1,6 @@
 <?php
     session_start();
     require("funkcje.php");
-    /* Dane admina:
-        login: UserAdmin
-        pass: SilneHaslo123
-    */
     $link = mysqli_connect("localhost", "UserAdmin", "SilneHaslo123", "kino");
     if(!$link)
     {
@@ -19,17 +15,18 @@
     $login = $_POST['login'];
     $pass = $_POST['pass'];
 
-    $que = "SELECT LOGIN FROM users WHERE login = ? AND haslo = ?";
+    $que = "SELECT ID_USER, LOGIN FROM users WHERE login = ? AND haslo = ?";
     $pstmt = mysqli_stmt_init($link);
     mysqli_stmt_prepare($pstmt, $que);
     mysqli_stmt_bind_param($pstmt,"ss",$login,$pass);
     mysqli_stmt_execute($pstmt);
-    mysqli_stmt_bind_result($pstmt, $logins);
+    mysqli_stmt_bind_result($pstmt, $IDs ,$logins);
     mysqli_stmt_fetch($pstmt);
     if($logins === $login)
     {
         $_SESSION['logged'] = true;
         $_SESSION['login'] = $login;
+        $_SESSION['ID_USER'] = $IDs;
         header('Location: index.php');
     }
     else{

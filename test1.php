@@ -16,82 +16,10 @@
 </head>
 
 <body>
-    <header>
-        <div id="titlepic">
-            <picture>
-                <source srcset="logo.gif" alt="Logo" media="(min-width: 700px)">
-                <img src="logosmall.gif" alt="Logo">
-            </picture>
-        </div>
-        <div id="menubutton">
-            <img src="icon/Hamburger.png" alt="Menu">
-        </div>
-    </header>
-    <nav id="menu-bar" class="MenuHide">
-        <div>
-            <a href="index.php" class="MenuButton">Strona główna</a>
-        </div>
-        <div>
-            <a href="repertuar.php" class="MenuButton">Repertuar</a>
-        </div>
-        <div>
-            <a href="ticket.php" class="MenuButton">Walidacja biletu</a>
-        </div>
-        <div>
-            <a href="address.php" class="MenuButton">Kontakt</a>
-        </div>
-        <div id="loginmenu">
-            <a href="loginpage.php" id="login_redirect" class="MenuButton">zaloguj</a>
-            <div id="ddlogin">zaloguj</div>
-            <div id="dropdown" class="hide">
-                <form action="login.php" method="POST">
-                    <label for="login">Login:</label><br />
-                    <input type="text" id="login" name="login"><br />
-                    <label for="pass">Hasło:</label><br />
-                    <input type="password" id="pass" name="pass"><br />
-                    <input type="submit" value="zaloguj" name="log"><br />
-                </form>
-                <a href="registerpage.php">Nie masz konta? Zarejstruj się!</a>
-            </div>
-        </div>
-    </nav>
-    <main>
-        <div id="film">
-            Test XD
-        </div>
-
-    </main>
-    <script>
-        $('body').click(function(e) {
-            if ($(window).width() >= 700) {
-                if (e.target.id == "loginmenu" || $(e.target).closest('#loginmenu').length > 0) {
-                    showDropdown();
-                    return;
-                }
-                if (e.target.id == "ddlogin" && $("#dropdown").hasClass("show")) {
-                    hideDropdown();
-                    return;
-                }
-                if ($("#dropdown").hasClass("show")) {
-                    hideDropdown();
-                    return;
-                }
-            } else {
-                if (e.target.id == "menubutton" || $(e.target).closest('#menubutton').length > 0) {
-                    if ($("#menu-bar").hasClass("MenuHide")) {
-                        showMenu();
-                    } else {
-                        hideMenu();
-                    }
-                }
-            }
-        });
-
-        $('#film').click(function(e) {
-            $("#movie_name").val("Krzyś");
-            $("#hidden_form").submit();
-        })
-    </script>
+    <?php
+        $arr = [[1,2,3],[3,2,1],[3,3,1],[4,4,4]];
+        echo json_encode($arr);
+    ?>
 </body>
 
-</html>
+</html> 

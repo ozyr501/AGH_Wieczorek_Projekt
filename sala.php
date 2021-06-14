@@ -41,7 +41,7 @@
         </div>
         <div id="loginmenu">
             <?php if (isset($_SESSION['logged']) && $_SESSION['logged']) : ?>
-                <a href="profile.php" class="MenuButton">Profil2</a>
+                <a href="profile.php" class="MenuButton">Profil</a>
                 <div id="dropdown" class="hide">
                     <a href="logout.php">Wyloguj</a>
                 </div>
@@ -69,17 +69,44 @@
         <!-- czerwone - zajęte [2] -->
         <!--  zielone - wybrane [3] -->
         <?php
-        $temparr = [[1, 1, 1, 1, 0, 1, 1, 1, 1], [1, 1, 1, 1, 0, 1, 1, 1, 1], [1, 1, 1, 1, 0, 1, 1, 1, 1], [0, 1, 1, 1, 1, 1, 1, 1, 0], [0, 1, 1, 1, 1, 1, 1, 1, 0], [0, 1, 1, 1, 1, 1, 1, 1, 0], [0, 1, 1, 1, 1, 1, 1, 1, 0]]
+        $link = mysqli_connect("localhost", "Doorman", "BezpieczneHaslo123", "kino");
+        if (!$link) {
+            echo ("Błąd bazy danych. Bardzo przepraszamy");
+            exit();
+        }
+        $que = "SELECT * FROM seanse WHERE ID_SEANS = " . $_POST['ID_SEANS'];
+        $result = $link->query($que);
+        $result = mysqli_fetch_assoc($result);
+        $temparr = json_decode($result['SEATS']);
         ?>
-        <table>
-            <?php foreach ($temparr as $i) : ?>
-                <tr>
-                    <?php foreach ($i as $j) : ?>
-                        <td><?php echo ($j); ?></td>
-                    <?php endforeach; ?>
-                </tr>
-            <?php endforeach; ?>
-        </table>
+        <form action="doorman.php" method="POST">
+            <input type="hidden" name="ID_SEANS" value="<?php echo($_POST['ID_SEANS']) ?>">
+            <table>
+                <?php 
+                $licz = -1;
+                foreach ($temparr as $i) : 
+                ?>
+                    <tr>
+                        <?php 
+                        foreach ($i as $j) : 
+                        ?>
+                            <td>
+                                <?php
+                                $licz++;
+                                echo ('<input  type="checkbox" class="');
+                                if($j == 1) echo('freeseat" ');
+                                elseif($j == 2) echo('takenseat" disabled ');
+                                else echo ('noseat" disabled ');
+                                echo('name="' . $licz . '" ');
+                                echo('value="' . $licz . '">');
+                                ?>
+                            </td>
+                        <?php endforeach; ?>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+            <input type="submit" value="zatwierdź">
+        </form>
     </main>
 
     <script>

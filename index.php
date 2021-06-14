@@ -42,7 +42,7 @@
         </div>
         <div id="loginmenu">
             <?php if (isset($_SESSION['logged']) && $_SESSION['logged']) : ?>
-                <a href="profile.php" class="MenuButton">Profil2</a>
+                <a href="profile.php" class="MenuButton">Profil</a>
                 <div id="dropdown" class="hide">
                     <a href="logout.php">Wyloguj</a>
                 </div>
@@ -64,6 +64,14 @@
         </div>
     </nav>
     <main>
+        <!-- TU DAJ ALERT Z BŁĘDAMI I INNYMI KOMUNIKATAMI
+    
+    
+    
+                NIET ZAPOMNIJ!!!!!
+    -->
+    <h1> nie zapomnij dodać alertu!!! </h1>
+    <?php echo('user:' . $_SESSION['ID_USER']); ?>
         <section>
             <h1>Trochę o nas</h1>
             <p>
@@ -85,20 +93,19 @@
                     echo ("Błąd bazy danych. Bardzo przepraszamy");
                     exit();
                 }
-                $que = "SELECT NAZWA, OCENA FROM filmy ORDER BY OCENA DESC LIMIT 6";
+                $que = "SELECT ID_FILM, NAZWA, OCENA FROM filmy ORDER BY OCENA DESC LIMIT 6";
                 $result = $link->query($que);
                 ?>
                 <ul class="flex-films">
                     <?php foreach ($result as $film) {
-                        echo ("<li class='flex-film' id=" . $film["NAZWA"] . ">" . $film["NAZWA"] . "</li>");
+                        echo ("<li class='flex-film' id=" . $film["ID_FILM"] . ">" . $film["NAZWA"] . "</li>");
                     }
                     ?>
                 </ul>
             </div>
         </article>
         <form action="filmcheck.php" method="POST" id="hidden_form">
-            <input type="hidden" name="movie_name" value="test" id="movie_name">
-            <input type="submit">
+            <input type="hidden" name="movie_id" value="" id="movie_id">
         </form>
     </main>
     <script>
@@ -128,7 +135,7 @@
         });
 
         $('.flex-films').click(function(e) {
-            $("#movie_name").val(e.target.id);
+            $("#movie_id").val(e.target.id);
             $("#hidden_form").submit();
         })
     </script>

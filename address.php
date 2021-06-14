@@ -41,7 +41,7 @@
         </div>
         <div id="loginmenu">
             <?php if (isset($_SESSION['logged']) && $_SESSION['logged']) : ?>
-                <a href="profile.php" class="MenuButton">Profil2</a>
+                <a href="profile.php" class="MenuButton">Profil</a>
                 <div id="dropdown" class="hide">
                     <a href="logout.php">Wyloguj</a>
                 </div>
