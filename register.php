@@ -11,6 +11,7 @@
         echo("Błąd bazy danych. Spróbuj ponownie później");
         exit();
     }
+
     if (!isset($_POST['login']) || !isset($_POST['pass']) || !isset($_POST['email']))
     {
         echo("Błąd formularza");
@@ -60,4 +61,5 @@
     mysqli_stmt_close($pstmt);
     mysqli_close($link);
     header('Location: index.php');
+
 ?>

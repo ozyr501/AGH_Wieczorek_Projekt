@@ -10,7 +10,6 @@
     <meta name="author" content="Krzysztof Wieczorek">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styleindex.css">
     <script src="script.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.3.min.js"></script>
 </head>
@@ -133,7 +132,6 @@
                 }
             }
         });
-
         $('.flex-films').click(function(e) {
             $("#movie_id").val(e.target.id);
             $("#hidden_form").submit();

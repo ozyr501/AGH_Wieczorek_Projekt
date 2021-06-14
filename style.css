@@ -53,6 +53,7 @@ body
         text-align: initial;
         box-sizing: border-box;
         position: absolute;
+
         background-color: white;
         border: solid 1px black;
         border-top: 0px;
@@ -84,7 +85,6 @@ body
     #ddlogin{
         padding: 0.5em;
     }
-
     #logout{
         display: none;
     }
@@ -170,7 +170,6 @@ body
     #logn_redirect{
         display: block;
     }
-
     #logout
     {
         border-top: 2px solid gray;
@@ -187,6 +186,7 @@ body
     display: block;
     padding: 0.5em;
 }
+
 
 .flex-films{
     display: flex;
@@ -205,3 +205,4 @@ body
     border: solid black 1px;
     margin: 10px 20px;
 }
+
