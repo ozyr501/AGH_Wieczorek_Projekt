@@ -10,6 +10,7 @@
     <meta name="author" content="Krzysztof Wieczorek">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleindex.css">
     <script src="script.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.3.min.js"></script>
 </head>
@@ -40,41 +41,25 @@
             <a href="address.php" class="MenuButton">Kontakt</a>
         </div>
         <div id="loginmenu">
-            <?php if (isset($_SESSION['logged']) && $_SESSION['logged']) : ?>
-                <a href="profile.php" class="MenuButton">Profil</a>
-                <div id="dropdown" class="hide">
-                    <a href="logout.php">Wyloguj</a>
-                </div>
-                <a href="logout.php" id="logout" class="MenuButton">Wyloguj</a>
-            <?php else : ?>
-                <a href="loginpage.php" id="login_redirect" class="MenuButton">zaloguj</a>
-                <div id="ddlogin">zaloguj</div>
-                <div id="dropdown" class="hide">
-                    <form action="login.php" method="POST">
-                        <label for="login">Login:</label><br />
-                        <input type="text" id="login" name="login"><br />
-                        <label for="pass">Hasło:</label><br />
-                        <input type="password" id="pass" name="pass"><br />
-                        <input type="submit" value="zaloguj" name="log"><br />
-                    </form>
-                    <a href="registerpage.php">Nie masz konta? Zarejstruj się!</a>
-                </div>
-            <?php endif; ?>
-
+            <a href="loginpage.php" id="login_redirect" class="MenuButton">zaloguj</a>
+            <div id="ddlogin">zaloguj</div>
+            <div id="dropdown" class="hide">
+                <form action="login.php" method="POST">
+                    <label for="login">Login:</label><br />
+                    <input type="text" id="login" name="login"><br />
+                    <label for="pass">Hasło:</label><br />
+                    <input type="password" id="pass" name="pass"><br />
+                    <input type="submit" value="zaloguj" name="log"><br />
+                </form>
+                <a href="registerpage.php">Nie masz konta? Zarejstruj się!</a>
+            </div>
         </div>
     </nav>
     <main>
-        <address>
-            Kino Kino sp. z o.o.<br />
-            Fiołkowa 1a<br />
-            30-024 Kraków<br />
-            tel.: 123-123-321<br />
-            mail: <a href="mailto:kino@kinokino.pl">kino@kinokino.pl</a><br />
-            strona: <a href="https://kinokino.pl/">https://kinokino.pl/</a><br />
-            (link tymczasowo nie działa)
-        </address>
+        <?php
+            echo($_POST['name']);
+        ?>
     </main>
-
     <script>
         $('body').click(function(e) {
             if ($(window).width() >= 700) {
@@ -100,6 +85,13 @@
                 }
             }
         });
+
+        $('#film').click(function(e) {
+            $.post("test2.php", {
+                name: "Krzys"
+            });
+            alert("click");
+        })
     </script>
 </body>
 

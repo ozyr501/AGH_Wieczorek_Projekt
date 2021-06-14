@@ -40,21 +40,37 @@
             <a href="address.php" class="MenuButton">Kontakt</a>
         </div>
         <div id="loginmenu">
-            <a href="loginpage.php" id="login_redirect" class="MenuButton">zaloguj</a>
-            <div id="ddlogin">zaloguj</div>
-            <div id="dropdown" class="hide">
-                <form action="login.php" method="POST">
-                    <label for="login">Login:</label><br />
-                    <input type="text" id="login" name="login"><br />
-                    <label for="pass">Hasło:</label><br />
-                    <input type="password" id="pass" name="pass"><br />
-                    <input type="submit" value="zaloguj" name="log"><br />
-                </form>
-                <a href="register.php">Nie masz konta? Zarejstruj się!</a>
-            </div>
+            <?php if (isset($_SESSION['logged']) && $_SESSION['logged']) : ?>
+                <a href="profile.php" class="MenuButton">Profil</a>
+                <div id="dropdown" class="hide">
+                    <a href="logout.php">Wyloguj</a>
+                </div>
+                <a href="logout.php" id="logout" class="MenuButton">Wyloguj</a>
+            <?php else : ?>
+                <a href="loginpage.php" id="login_redirect" class="MenuButton">zaloguj</a>
+                <div id="ddlogin">zaloguj</div>
+                <div id="dropdown" class="hide">
+                    <form action="login.php" method="POST">
+                        <label for="login">Login:</label><br />
+                        <input type="text" id="login" name="login"><br />
+                        <label for="pass">Hasło:</label><br />
+                        <input type="password" id="pass" name="pass"><br />
+                        <input type="submit" value="zaloguj" name="log"><br />
+                    </form>
+                    <a href="registerpage.php">Nie masz konta? Zarejstruj się!</a>
+                </div>
+            <?php endif; ?>
         </div>
     </nav>
     <main>
+        <!-- TU DAJ ALERT Z BŁĘDAMI I INNYMI KOMUNIKATAMI
+    
+    
+    
+                NIET ZAPOMNIJ!!!!!
+    -->
+    <h1> nie zapomnij dodać alertu!!! </h1>
+    <?php echo('user:' . $_SESSION['ID_USER']); ?>
         <section>
             <h1>Trochę o nas</h1>
             <p>
@@ -70,15 +86,27 @@
         <article id="movies">
             <h3>Polecane filmy:</h3>
             <div id="list">
-                <ul class="flex-container">
-                    <?php
-                    //Tu będzie top 5 filmów w kinie na podstawie oceny
+                <?php
+                $link = mysqli_connect("localhost", "FilmViewer", "", "kino");
+                if (!$link) {
+                    echo ("Błąd bazy danych. Bardzo przepraszamy");
+                    exit();
+                }
+                $que = "SELECT ID_FILM, NAZWA, OCENA FROM filmy ORDER BY OCENA DESC LIMIT 6";
+                $result = $link->query($que);
+                ?>
+                <ul class="flex-films">
+                    <?php foreach ($result as $film) {
+                        echo ("<li class='flex-film' id=" . $film["ID_FILM"] . ">" . $film["NAZWA"] . "</li>");
+                    }
                     ?>
                 </ul>
             </div>
         </article>
+        <form action="filmcheck.php" method="POST" id="hidden_form">
+            <input type="hidden" name="movie_id" value="" id="movie_id">
+        </form>
     </main>
-
     <script>
         $('body').click(function(e) {
             if ($(window).width() >= 700) {
@@ -104,6 +132,10 @@
                 }
             }
         });
+        $('.flex-films').click(function(e) {
+            $("#movie_id").val(e.target.id);
+            $("#hidden_form").submit();
+        })
     </script>
 </body>
 

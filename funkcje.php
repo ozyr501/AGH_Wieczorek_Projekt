@@ -6,16 +6,4 @@
         $data = htmlspecialchars($data); //usuwanie z ciągu znaków specjalnych HTML
         return $data;
     }
-    
-    /*
-    class Osoba {
-    public $login;
-    public $haslo;
-    public $imieNazwisko;
-    }
-    
-    $osoba1 = new Osoba;
-    $osoba1->login = "jankowalski";
-    $osoba1->haslo = "janek007";
-    $osoba1->imieNazwisko = "Jan Kowalski";*/
 ?>
