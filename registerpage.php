@@ -66,7 +66,7 @@
     <main>
         <form action="register.php" method="POST">
             <label for="login">Email:</label><br />
-            <input type="text" id="email" name="email"><br />
+            <input type="email" id="email" name="email"><br />
             <label for="login">Login:</label><br />
             <input type="text" id="login" name="login"><br />
             <label for="pass">Hasło:</label><br />
