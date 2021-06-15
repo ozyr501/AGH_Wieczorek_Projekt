@@ -4,6 +4,10 @@ body
     margin: 0;
 }
 
+main{
+    padding: 10px;
+}
+
 /* Menu */
 @media all and (min-width:700px)
 { 

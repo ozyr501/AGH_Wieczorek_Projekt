@@ -70,8 +70,7 @@
             30-024 Kraków<br />
             tel.: 123-123-321<br />
             mail: <a href="mailto:kino@kinokino.pl">kino@kinokino.pl</a><br />
-            strona: <a href="https://kinokino.pl/">https://kinokino.pl/</a><br />
-            (link tymczasowo nie działa)
+            strona: <a href="http://localhost/projekt/address.php">http://localhost/projekt/address.php</a><br />
         </address>
     </main>
 

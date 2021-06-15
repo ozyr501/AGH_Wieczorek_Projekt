@@ -63,11 +63,65 @@
         </div>
     </nav>
     <main>
-        Wprowadź numer swojego biletu:
-        <form action="login.php" method="POST">
-            <input type="text" id="ticketnumber" name="ticketnumber"><br />
-            <input type="submit" value="sprawdź" name="tickettest"><br />
-        </form>
+        <div id="form">
+            Wprowadź numer swojego biletu:
+            <form action="ticket.php" method="GET">
+                <input type="text" id="ticketnumber" name="ticketnumber"><br />
+                <input type="submit" value="sprawdź" name=""><br />
+            </form>
+        </div>
+        <div id="response">
+        <?php
+            if(isset($_GET['ticketnumber']))
+            {
+                $link = mysqli_connect("localhost", "FilmViewer", "", "kino");
+                if (!$link) {
+                    echo ("Błąd bazy danych. Spróbuj ponownie później");
+                    exit();
+                }
+                $que = "SELECT ID_SEANS, ROW, SEAT, NUMBER FROM bilety WHERE NUMBER = ?";
+                $pstmt = mysqli_stmt_init($link);
+                mysqli_stmt_prepare($pstmt, $que);
+                mysqli_stmt_bind_param($pstmt, "s", $_GET["ticketnumber"]);
+                mysqli_stmt_execute($pstmt);
+                mysqli_stmt_bind_result($pstmt, $ID, $r, $s, $num);
+                mysqli_stmt_fetch($pstmt);
+                if(isset($ID))
+                {
+                    $link = mysqli_connect("localhost", "FilmViewer", "", "kino");
+                    $que = "SELECT ID_FILM, DATE FROM seanse WHERE ID_SEANS = " . $ID;
+                    $result = $link->query($que);
+                    $result = mysqli_fetch_assoc($result);
+
+                    if(isset($result["ID_FILM"]))
+                    {
+                        $que = "SELECT NAZWA FROM filmy WHERE ID_FILM = " . $result["ID_FILM"];
+                        $result2 = $link->query($que);
+                        $result2 = mysqli_fetch_assoc($result2);
+                        if(!isset($result2['NAZWA']))
+                        {
+                            echo ("Błąd bazy danych. Spróbuj ponownie później");
+                        }
+                        else
+                        {
+                            echo("Film: " . $result2['NAZWA'] . "<br/>");
+                            echo ("Data: " . $result['DATE'] . "<br/>");
+                            echo("Rząd: " . $r . "<br/>");
+                            echo ("Miejsce:  " . $s);
+                        }
+                    }
+                    else
+                    {
+                        echo("Błąd bazy danych. Spróbuj ponownie później");
+                    }
+                }
+                else
+                {
+                    echo("Nie znaleziono biletu");
+                }
+            }
+        ?>
+        </div>
     </main>
 
     <script>

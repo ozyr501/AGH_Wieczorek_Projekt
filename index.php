@@ -63,15 +63,7 @@
         </div>
     </nav>
     <main>
-        <!-- TU DAJ ALERT Z BŁĘDAMI I INNYMI KOMUNIKATAMI
-    
-    
-    
-                NIET ZAPOMNIJ!!!!!
-    -->
-    <h1> nie zapomnij dodać alertu!!! </h1>
-    <?php echo('user:' . $_SESSION['ID_USER']); ?>
-        <section>
+         <section>
             <h1>Trochę o nas</h1>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sapien leo, aliquam ut bibendum ut, malesuada id purus.
