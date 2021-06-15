@@ -32,6 +32,7 @@ foreach ($_POST as $v) {
     {
         $code = $_SESSION['ID_USER'] . $_POST['ID_SEANS'] . time() . $lp++;
         $que = 'INSERT INTO bilety (ID_SEANS, ID_USER, NUMBER, ROW, SEAT) VALUES (' . $_POST['ID_SEANS'] . ', ' . $_SESSION['ID_USER'] . ', ' . $code . ', ' . $r . ', ' . $s . ')';
+        $link->query($que);
         $temparr[$r][$s] = 2;
         $freeseats--;
     }

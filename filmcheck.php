@@ -18,14 +18,17 @@
 <body>
     <main>
         <?php
+            if(!isset($_SESSION['logged']) || $_SESSION['logged'] == false)
+            {
+                header('Location: loginpage.php');
+            }
             $link = mysqli_connect("localhost", "FilmViewer", "", "kino");
             if (!$link) {
                 exit("Błąd bazy danych. Bardzo przepraszamy");
             }
             $que = "SELECT ID_SEANS, DATE, FREE_SEATS FROM seanse WHERE ID_FILM = " . $_POST['movie_id'];
             $result = $link->query($que);
-            ?>
-            <?php if($result->num_rows == 0)
+            if($result->num_rows == 0)
                 echo('Przepraszamy. Obecnie brak senanów z wybranym filmem.');
             else
             {
