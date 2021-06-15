@@ -10,6 +10,7 @@
     <meta name="author" content="Krzysztof Wieczorek">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylesala.css">
     <script src="script.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.3.min.js"></script>
 </head>
@@ -63,50 +64,52 @@
         </div>
     </nav>
     <main>
-        Wybierz miejsce, które chcesz zarezerować.
-        <!-- białe - brak fotela w tym polu [0] -->
-        <!-- szare - wolne [1] -->
-        <!-- czerwone - zajęte [2] -->
-        <!--  zielone - wybrane [3] -->
-        <?php
-        $link = mysqli_connect("localhost", "Doorman", "BezpieczneHaslo123", "kino");
-        if (!$link) {
-            echo ("Błąd bazy danych. Bardzo przepraszamy");
-            exit();
-        }
-        $que = "SELECT * FROM seanse WHERE ID_SEANS = " . $_POST['ID_SEANS'];
-        $result = $link->query($que);
-        $result = mysqli_fetch_assoc($result);
-        $temparr = json_decode($result['SEATS']);
-        ?>
-        <form action="doorman.php" method="POST">
-            <input type="hidden" name="ID_SEANS" value="<?php echo($_POST['ID_SEANS']) ?>">
-            <table>
-                <?php 
-                $licz = -1;
-                foreach ($temparr as $i) : 
-                ?>
-                    <tr>
-                        <?php 
-                        foreach ($i as $j) : 
-                        ?>
-                            <td>
-                                <?php
-                                $licz++;
-                                echo ('<input  type="checkbox" class="');
-                                if($j == 1) echo('freeseat" ');
-                                elseif($j == 2) echo('takenseat" disabled ');
-                                else echo ('noseat" disabled ');
-                                echo('name="' . $licz . '" ');
-                                echo('value="' . $licz . '">');
-                                ?>
-                            </td>
-                        <?php endforeach; ?>
-                    </tr>
-                <?php endforeach; ?>
-            </table>
-            <input type="submit" value="zatwierdź">
-        </form>
+        <div id="center">
+            Wybierz miejsce, które chcesz zarezerować.
+            <!-- brak fotela w tym polu [0] -->
+            <!-- wolne [1] -->
+            <!-- zajęte [2] -->
+            <?php
+            $link = mysqli_connect("localhost", "Doorman", "BezpieczneHaslo123", "kino");
+            if (!$link) {
+                echo ("Błąd bazy danych. Bardzo przepraszamy");
+                exit();
+            }
+            $que = "SELECT * FROM seanse WHERE ID_SEANS = " . $_POST['ID_SEANS'];
+            $result = $link->query($que);
+            $result = mysqli_fetch_assoc($result);
+            $temparr = json_decode($result['SEATS']);
+            ?>
+            <form action="doorman.php" method="POST" >
+                <input type="hidden" name="ID_SEANS" value="<?php echo ($_POST['ID_SEANS']) ?>">
+                <table>
+                    <?php
+                    $licz = -1;
+                    foreach ($temparr as $i) :
+                    ?>
+                        <tr>
+                            <?php
+                            foreach ($i as $j) :
+                            ?>
+                                <td>
+                                    <?php
+                                    $licz++;
+                                    echo ('<input  type="checkbox" class="seat');
+                                    if ($j == 1) echo (' freeseat" ');
+                                    elseif ($j == 2) echo (' takenseat" disabled ');
+                                    else echo (' noseat" disabled ');
+                                    echo ('name="' . $licz . '" ');
+                                    echo ('value="' . $licz . '">');
+                                    
+                                    ?>
+                                </td>
+                            <?php endforeach; ?>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+                <input type="submit" value="zatwierdź">
+            </form>
+        </div>
     </main>
 
     <script>

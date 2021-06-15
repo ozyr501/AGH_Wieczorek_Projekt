@@ -4,6 +4,10 @@ body
     margin: 0;
 }
 
+main{
+    padding: 10px;
+}
+
 /* Menu */
 @media all and (min-width:700px)
 { 
@@ -53,12 +57,11 @@ body
         text-align: initial;
         box-sizing: border-box;
         position: absolute;
-
         background-color: white;
         border: solid 1px black;
         border-top: 0px;
         padding: 12px 16px;
-        z-index: 1;
+        z-index: 2;
     }
 
     #dropdown form input{
@@ -85,6 +88,7 @@ body
     #ddlogin{
         padding: 0.5em;
     }
+
     #logout{
         display: none;
     }
@@ -170,6 +174,7 @@ body
     #logn_redirect{
         display: block;
     }
+
     #logout
     {
         border-top: 2px solid gray;
@@ -187,7 +192,6 @@ body
     padding: 0.5em;
 }
 
-
 .flex-films{
     display: flex;
     justify-content: space-evenly;
@@ -202,7 +206,7 @@ body
     width: 300px;
     height: 400px;
     flex-shrink: 2;
-    border: solid black 1px;
+    box-shadow: 0px 0px 8px #888888;
     margin: 10px 20px;
+    z-index: 1;
 }
-
