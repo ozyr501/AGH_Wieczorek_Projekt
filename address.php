@@ -60,7 +60,6 @@
                     <a href="registerpage.php">Nie masz konta? Zarejstruj się!</a>
                 </div>
             <?php endif; ?>
-
         </div>
     </nav>
     <main>

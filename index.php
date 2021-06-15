@@ -10,6 +10,7 @@
     <meta name="author" content="Krzysztof Wieczorek">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleindex.css">
     <script src="script.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.3.min.js"></script>
 </head>
@@ -63,7 +64,7 @@
         </div>
     </nav>
     <main>
-         <section>
+        <section>
             <h1>Trochę o nas</h1>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sapien leo, aliquam ut bibendum ut, malesuada id purus.
@@ -84,12 +85,12 @@
                     echo ("Błąd bazy danych. Bardzo przepraszamy");
                     exit();
                 }
-                $que = "SELECT ID_FILM, NAZWA, OCENA FROM filmy ORDER BY OCENA DESC LIMIT 6";
+                $que = "SELECT ID_FILM, NAZWA, OCENA, POSTER FROM filmy ORDER BY OCENA DESC LIMIT 6";
                 $result = $link->query($que);
                 ?>
                 <ul class="flex-films">
                     <?php foreach ($result as $film) {
-                        echo ("<li class='flex-film' id=" . $film["ID_FILM"] . ">" . $film["NAZWA"] . "</li>");
+                        echo ("<li class='flex-film'>" . '<img id="' . $film["ID_FILM"] . '" src="data:image/jpeg;base64,' . base64_encode($film['POSTER']) . '"/>' . "</li>");
                     }
                     ?>
                 </ul>
@@ -124,6 +125,7 @@
                 }
             }
         });
+
         $('.flex-films').click(function(e) {
             $("#movie_id").val(e.target.id);
             $("#hidden_form").submit();

@@ -63,25 +63,24 @@
         </div>
     </nav>
     <main>
-        Wybierz film, który cię interesuje:
+        <h3>Wybierz film, który cię interesuje:</h3>
         <?php
         $link = mysqli_connect("localhost", "FilmViewer", "", "kino");
         if (!$link) {
             echo ("Błąd bazy danych. Bardzo przepraszamy");
             exit();
         }
-        $que = "SELECT ID_FILM, NAZWA, OCENA FROM filmy ORDER BY OCENA DESC";
+        $que = "SELECT ID_FILM, NAZWA, OCENA, POSTER FROM filmy ORDER BY NAZWA ASC";
         $result = $link->query($que);
         ?>
         <ul class="flex-films">
             <?php foreach ($result as $film) {
-                echo ("<li class='flex-film' id=" . $film["ID_FILM"] . ">" . $film["NAZWA"] . "</li>");
+                echo ("<li class='flex-film'>" . '<img id="' . $film["ID_FILM"] . '" src="data:image/jpeg;base64,' . base64_encode($film['POSTER']) . '"/>' . "</li>");
             }
             ?>
         </ul>
         <form action="filmcheck.php" method="POST" id="hidden_form">
             <input type="hidden" name="movie_id" value="" id="movie_id">
-            <input type="submit">
         </form>
     </main>
 
