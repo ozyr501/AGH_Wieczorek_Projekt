@@ -10,6 +10,7 @@
     <meta name="author" content="Krzysztof Wieczorek">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylelogin.css">
     <script src="script.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.3.min.js"></script>
 </head>
@@ -71,9 +72,8 @@
             </form>
         </div>
         <div id="response">
-        <?php
-            if(isset($_GET['ticketnumber']))
-            {
+            <?php
+            if (isset($_GET['ticketnumber'])) {
                 $link = mysqli_connect("localhost", "FilmViewer", "", "kino");
                 if (!$link) {
                     echo ("Błąd bazy danych. Spróbuj ponownie później");
@@ -86,41 +86,32 @@
                 mysqli_stmt_execute($pstmt);
                 mysqli_stmt_bind_result($pstmt, $ID, $r, $s, $num);
                 mysqli_stmt_fetch($pstmt);
-                if(isset($ID))
-                {
+                if (isset($ID)) {
                     $link = mysqli_connect("localhost", "FilmViewer", "", "kino");
                     $que = "SELECT ID_FILM, DATE FROM seanse WHERE ID_SEANS = " . $ID;
                     $result = $link->query($que);
                     $result = mysqli_fetch_assoc($result);
 
-                    if(isset($result["ID_FILM"]))
-                    {
+                    if (isset($result["ID_FILM"])) {
                         $que = "SELECT NAZWA FROM filmy WHERE ID_FILM = " . $result["ID_FILM"];
                         $result2 = $link->query($que);
                         $result2 = mysqli_fetch_assoc($result2);
-                        if(!isset($result2['NAZWA']))
-                        {
+                        if (!isset($result2['NAZWA'])) {
                             echo ("Błąd bazy danych. Spróbuj ponownie później");
-                        }
-                        else
-                        {
-                            echo("Film: " . $result2['NAZWA'] . "<br/>");
+                        } else {
+                            echo ("Film: " . $result2['NAZWA'] . "<br/>");
                             echo ("Data: " . $result['DATE'] . "<br/>");
-                            echo("Rząd: " . $r+1 . "<br/>");
-                            echo ("Miejsce:  " . $s+1);
+                            echo ("Rząd: " . $r + 1 . "<br/>");
+                            echo ("Miejsce:  " . $s + 1);
                         }
+                    } else {
+                        echo ("Błąd bazy danych. Spróbuj ponownie później");
                     }
-                    else
-                    {
-                        echo("Błąd bazy danych. Spróbuj ponownie później");
-                    }
-                }
-                else
-                {
-                    echo("Nie znaleziono biletu");
+                } else {
+                    echo ("Nie znaleziono biletu");
                 }
             }
-        ?>
+            ?>
         </div>
     </main>
 

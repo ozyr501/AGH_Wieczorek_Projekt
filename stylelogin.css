@@ -6,7 +6,7 @@
         align-items: center;
         text-align: center;
     }
-    main  > form > input
+    main form > input
     {
         margin-bottom: 5px;
     }
@@ -21,7 +21,7 @@
         font-size: 150%;
     }
 
-    main  > form > input
+    main form > input
     {
         margin-bottom: 5px;
         width: 100%;
