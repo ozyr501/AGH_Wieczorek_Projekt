@@ -106,8 +106,8 @@
                         {
                             echo("Film: " . $result2['NAZWA'] . "<br/>");
                             echo ("Data: " . $result['DATE'] . "<br/>");
-                            echo("Rząd: " . $r . "<br/>");
-                            echo ("Miejsce:  " . $s);
+                            echo("Rząd: " . $r+1 . "<br/>");
+                            echo ("Miejsce:  " . $s+1);
                         }
                     }
                     else
