@@ -9,7 +9,13 @@ class ticket
     public $seat;
 }
 
+class errormess
+{
+    public $mess;
+}
+
 $ticket = new ticket;
+$error = new errormess();
 if (isset($_GET['tn'])) {
     $link = mysqli_connect("localhost", "FilmViewer", "", "kino");
     $que = "SELECT ID_SEANS, ROW, SEAT, NUMBER FROM bilety WHERE NUMBER = ?";
@@ -24,7 +30,6 @@ if (isset($_GET['tn'])) {
         $que = "SELECT ID_FILM, DATE FROM seanse WHERE ID_SEANS = " . $ID;
         $result = $link->query($que);
         $result = mysqli_fetch_assoc($result);
-
         if (isset($result["ID_FILM"])) {
             $que = "SELECT NAZWA FROM filmy WHERE ID_FILM = " . $result["ID_FILM"];
             $result2 = $link->query($que);
@@ -36,9 +41,29 @@ if (isset($_GET['tn'])) {
                 $ticket->date = $result['DATE'];
                 $ticket->row = $r+1;
                 $ticket->seat = $s+1;
+            } else
+            {
+                $error->mess = "Błąd bazy danych";
+                goto err;
             }
+        } else {
+            $error->mess = "Błąd bazy danych";
+            goto err;
         }
-    } 
+    } else {
+        $error->mess = "Nieporpawny numer";
+        goto err;
+    }
     echo json_encode($ticket);
+}
+else
+{
+    $error->mess = "Nieporpawny numer";
+    goto err;
+}
+if(false)
+{
+    err:
+    echo json_encode($error);
 }
 ?>
